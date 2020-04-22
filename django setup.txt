@@ -1,0 +1,52 @@
+Steps for creating a Django App:
+
+1.	Install Python 
+https://www.python.org/
+2.	open cmd (run below commands)
+check for python version   	python --version
+check for pip version	pip --version
+check for django version	django-admin --version
+
+install virtual environment 	install virtualenvwrapper-win		(required in case you want to create virutal env, else not needed)
+create a virutal environment	mkvirtualenv test
+install django		pip install django
+check for django version	django-admin --version
+
+
+create a seperate folder	mkdir projects
+navigate inside that folder	cd projects
+create project		django-admin startproject capstone
+#check the create files in the directory
+run the server		python manage.py runserver
+#go to http://127.0.0.1.8000
+
+
+3.	Install visual studio
+Open the folder for the project created earlier
+cmd:
+workon test
+python manage.py startapp restaurant
+create file under your project:
+urls.py
+
+Write the code in urls.py
+from django.urls import path
+from . import views 
+urlpatterns = [
+path('', views.home, name='home')
+
+
+Write the code in views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+def home(request):
+      return HttpResponse("Hello world")
+	
+
+Update the urls.py (Capstone)
+
+import django.urls import path, include
+
+urlpatterns=[
+path('',include(restaurant.urls)),]
+
